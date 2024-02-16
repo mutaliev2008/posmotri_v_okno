@@ -73,7 +73,6 @@ ol {
 }
 
 .result__video {
-  position: absolute;
   width: 711px;
   height: 386px;
   object-fit: cover;
@@ -260,6 +259,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   height: 34px;
   margin: 2px;
 }
+
 .content__list-item:focus {
   border: none;
 }
@@ -268,13 +268,16 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   outline: 1px solid rgb(255, 255, 255);
   outline-offset: 1px;
 }
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #ffffff;
   outline-offset: 1px;
 }
+
 .search-form__textfield:active {
   border: 1px solid #ffffff;
 }
+
 /* 
 .search-form__textfield:focus {
   outline: 1px solid #ffffff;
