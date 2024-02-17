@@ -9,14 +9,15 @@ html {
 }
 
 .page {
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", Arial, sans-serif;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
   color: #fff;
-  display: grid;
-  justify-content: center;
+  overflow-y: scroll;
+  display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -44,8 +45,6 @@ ol {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 1140px;
-  height: 534px;
-  margin: 136px 30px;
   align-items: end;
   gap: 30px;
 }
@@ -57,13 +56,11 @@ ol {
 
 .content__details {
   width: 416px;
-  height: 531px;
   margin-bottom: 3px;
 }
 
 .result {
   width: 711px;
-  height: 456px;
 }
 
 .result__video-container {
@@ -73,8 +70,8 @@ ol {
 }
 
 .result__video {
-  width: 711px;
-  height: 386px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -83,7 +80,7 @@ ol {
   width: 403px;
   height: 295px;
   position: relative;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }
 
@@ -92,7 +89,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: "Oswald", Arial, sans-serif;
   margin-bottom: 26px;
   font-size: 75px;
   font-weight: 700;
@@ -115,7 +112,7 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: "Oswald", Arial, sans-serif;
   color: rgb(255, 255, 255);
   margin: 0px 0px 5px 1px;
   font-size: 30px;
@@ -136,7 +133,7 @@ ol {
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-weight: 400;
@@ -154,10 +151,10 @@ ol {
 }
 
 .search-form__fieldset-title {
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   color: rgb(255, 255, 255);
   font-size: 18px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   font-weight: 400;
   line-height: 22px;
   text-align: left;
@@ -176,13 +173,14 @@ ol {
 .search-form__fieldset {
   border: 0;
   margin-bottom: 6px;
-  margin-top: 13px;
+  margin-top: 15px;
 }
 
 .search-form__label {
   width: fit-content;
   cursor: pointer;
   display: flex;
+  gap: 4px;
 }
 
 .search-form__label:hover > .search-form__label-text {
@@ -190,13 +188,13 @@ ol {
 }
 
 .button {
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  width: 194px;
-  height: 34px;
+  min-width: 194px;
+  min-height: 34px;
   background-color: transparent;
   border: 1px solid rgb(255, 255, 255);
 }
@@ -210,11 +208,11 @@ ol {
 }
 
 .search-form__textfield {
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   appearance: none;
   width: 225px;
   height: 22px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffff;
   padding: 13px 0px 12px 0px;
   border: 0px;
   font-size: 18px;
@@ -225,39 +223,19 @@ ol {
 }
 
 .search-form__checkbox-list {
-  display: flex;
-  gap: 4px;
-  width: 212px;
+  display: grid;
+  grid-template-columns: 62px 62px 62px;
+  gap: 13px;
 }
 
 .search-form__submit-button {
-  margin-top: 33px;
-}
-
-.search-form__pseudo-checkbox {
-  width: 19px;
-  height: 19px;
-  border: 1px solid rgb(255, 255, 255);
-  margin-top: 1px;
-}
-
-input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
-  width: 15px;
-  height: 15px;
-  background: rgb(255, 255, 255);
-  outline: 1px solid rgb(255, 255, 255);
-  outline-offset: 2px;
-  margin: 3px;
-}
-
-.search-form__label-text {
-  margin: 0px 10px 0px 6px;
+  margin-top: 35px;
+  margin-bottom: 6px;
 }
 
 .more-button {
   width: 399px;
-  height: 34px;
-  margin: 2px;
+  margin: 2px 0px 2px 2px;
 }
 
 .content__list-item:focus {
@@ -269,27 +247,43 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   outline-offset: 1px;
 }
 
+.content__card-link:focus-visible {
+  outline: 1px solid #ffffff;
+  outline-offset: -1px;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #ffffff;
   outline-offset: 1px;
+}
+
+.search-form__label:has(:focus-visible) > input {
+  border-top: 0;
+  border-bottom: 0;
+  outline: 0;
 }
 
 .search-form__textfield:active {
   border: 1px solid #ffffff;
 }
 
-/* 
-.search-form__textfield:focus {
-  outline: 1px solid #ffffff;
+.search-form__checkbox + .search-form__pseudo-checkbox::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 19px;
+  margin: 2px 0px 0px 0px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+  width: 14px;
+  height: 14.4px;
+  background: rgb(255, 255, 255);
+  outline: 1px solid rgb(255, 255, 255);
   outline-offset: 2px;
-} */
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #ffffff;
-  outline-offset: 1px;
+  margin: 4px 2px 2px 2px;
 }
-
-.content__card-link:focus-visible {
-  outline: 1px solid #ffffff;
-  outline-offset: 1px;
-}
+/* Если и сейчас у чексбоксов ошибки то я не знаю.Ведь там разница в каких-то пикселях */
+/* Единственно где могут быть ошибки это input(search-form__textfield) и обводка карточек с городами. С отстальним думаю проблем нет.*/
+/* Приятной вам работы! */
