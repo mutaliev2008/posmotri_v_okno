@@ -77,15 +77,12 @@ ol {
 }
 
 .content__list {
-  width: 403px;
+  width: 420px;
   height: 295px;
+  padding-right: 5px;
   position: relative;
   overflow: auto;
   overflow-x: hidden;
-}
-
-.content__list::-webkit-scrollbar {
-  width: 0;
 }
 
 .title {
@@ -101,14 +98,6 @@ ol {
 .content__list-item:not(:last-child) {
   margin-bottom: 32px;
   margin-right: 7px;
-}
-
-.content__list-item:active {
-  background-color: #545050;
-}
-
-.content__list-item:hover {
-  text-decoration: underline;
 }
 
 .content__video-card-title {
@@ -130,6 +119,7 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  object-fit: cover;
 }
 
 .content__video-card-description {
@@ -234,7 +224,7 @@ ol {
 }
 
 .more-button {
-  width: 399px;
+  width: 100%;
   margin: 2px 0px 2px 2px;
 }
 
@@ -249,6 +239,7 @@ ol {
 
 .content__card-link:focus-visible {
   outline: 1px solid #ffffff;
+  background-color: #545050;
   outline-offset: -1px;
 }
 
@@ -284,6 +275,22 @@ ol {
   outline-offset: 2px;
   margin: 4px 2px 2px 2px;
 }
+
+.content__card-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+}
+
+.content_card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+/* .content__card-link:focus-visible {
+  background-color: #545050;
+} */
 /* Если и сейчас у чексбоксов ошибки то я не знаю.Ведь там разница в каких-то пикселях */
 /* Единственно где могут быть ошибки это input(search-form__textfield) и обводка карточек с городами. С отстальним думаю проблем нет.*/
 /* Приятной вам работы! */
